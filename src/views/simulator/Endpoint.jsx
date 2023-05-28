@@ -1,22 +1,12 @@
-import React, { useEffect, useState }   from 'react';
+import React, {useContext, useState} from 'react';
 
-import {
-    Card,
-    Col,
-    Row,
-    CardHeader,
-    Input,
-    InputGroup,
-    InputGroupAddon,
-    InputGroupText,
-
- } from 'reactstrap';
- import { useViewContext } from "../../ViewContext";
+import {Card, CardHeader, Col, Input, InputGroup, InputGroupText, Row,} from 'reactstrap';
+import ViewContext from "../../ViewContext";
 
 const Endpoint = (props) => {
-    const vx = useViewContext();
+    const vx = useContext(ViewContext);
     
-    const [url, setUrl] = useState(props.vars.url);
+    const [url, setUrl] =useState(props.vars.url);
 
     const style = {
         backgroundColor: 'yellow',
@@ -46,9 +36,7 @@ const Endpoint = (props) => {
         <Row>
             <Col xs="3">
                 <InputGroup >
-                    <InputGroupAddon addonType="prepend">
-                        <InputGroupText>Root</InputGroupText>
-                    </InputGroupAddon>
+                    <InputGroupText>Root</InputGroupText>
                     <Input value={url} onChange= {updaterRoot}   />
                 </InputGroup>
             </Col>
@@ -59,9 +47,7 @@ const Endpoint = (props) => {
             </Col>
             <Col xs="5">
                 <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                        <InputGroupText>Endpoint</InputGroupText>
-                    </InputGroupAddon>
+                    <InputGroupText>Endpoint</InputGroupText>
                     <Input
                         value={props.vars.url + props.vars.uri}
                         onChange= {updaterRoot}

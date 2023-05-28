@@ -15,34 +15,32 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, {useState, useEffect} from "react";
+import React, {useContext, useEffect, useState} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
 // reactstrap components
 import {
-  Button,
-  Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Input,
-  InputGroup,
-  NavbarBrand,
-  Navbar,
-  NavLink,
-  Nav,
-  Container,
-  Modal,
+    Collapse,
+    Container,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle,
+    Input,
+    Modal,
+    Nav,
+    Navbar,
+    NavbarBrand,
+    NavLink,
+    UncontrolledDropdown,
 } from "reactstrap";
-import {useViewContext } from "../../ViewContext";
+import ViewContext from "../../ViewContext";
 
 const AdminNavbar = (props) => {
 
-  const vx = useViewContext();
+  const vx = useContext(ViewContext);
 
-  const [modalState, setModalState] = useState({
+  const [modalState, setModalState] =useState({
       collapseOpen: false,
       modalSearch: false,
       color: "navbar-transparent"

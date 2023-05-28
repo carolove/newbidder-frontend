@@ -1,37 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-
-  CardTitle,
-  Form,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Table,
-  Label,
-  Row,
-  Col
-} from "reactstrap";
-
+import {Button, ButtonGroup, Col, FormGroup, Input, Row} from "reactstrap";
 
 
 var undef;
 
 const CreativeSizeEditor = (props) => {
 
-  const [rSelected, setRSelected] = useState(props.creative.sizeType);
+  const [rSelected, setRSelected] =useState(props.creative.sizeType);
 
   const setSelection = (r) => {
     if (r === 1) {

@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
-import http from 'http';
 import Endpoint from './simulator/Endpoint';
 import Bideditor from './simulator/Bideditor';
 import Windisplay from './simulator/Windisplay';
-import { Logo, Tips, SampleBanner, SampleVideo, SampleAudio, SampleNative, Clipboard } from './simulator/Utils';
-import { SSL_OP_LEGACY_SERVER_CONNECT } from 'constants';
-import { useViewContext } from "../ViewContext";
+import {Clipboard, SampleAudio, SampleBanner, SampleNative, SampleVideo} from './simulator/Utils';
+import ViewContext from "../ViewContext";
 
-const httpAgent = new http.Agent({ keepAlive: true });
-const axiosInstance = axios.create({
-  httpAgent,  // httpAgent: httpAgent -> for non es6 syntax
-});
+const axiosInstance = axios.create();
 const cannedResponse = {"response": "will go here"};
 
 let ssp = "Nexage";
@@ -19,15 +14,15 @@ var undef;
 
 const Simulator = (props) =>  {
 
-  const vx = useViewContext();
+  const vx = useContext(ViewContext);
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] =useState(0);
 
   useEffect(() => {
     wClearHandler();
  }, []);
 
-  const [vars, setVars] = useState({
+  const [vars, setVars] =useState({
     exchanges: [
       { name: 'Nexage', uri: '/rtb/bids/nexage' },
       { name: 'Bidswitch', uri: '/rtb/bids/bidswitch' },

@@ -1,20 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 //import JSONInput from 'react-json-editor-ajrm';
 //import locale from 'react-json-editor-ajrm/locale/en';
 import ReactJson from 'react-json-view'
-import {
-    Button,
-    Card,
-    CardHeader,
-    Row,
-    Col
- } from 'reactstrap';
- import { useViewContext } from "../../ViewContext";
+import {Button, Card, CardHeader, Col, Row} from 'reactstrap';
+import ViewContext from "../../ViewContext";
 
 
 const Bideditor = (props) => {
 
-    const vx = useViewContext();
+    const vx = useContext(ViewContext);
 
     const style = {
         backgroundColor: 'yellow',

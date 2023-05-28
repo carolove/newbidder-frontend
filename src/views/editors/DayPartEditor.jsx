@@ -1,11 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import {
-    Button,
-    Table,
-    Row,
-    Col,
-  } from "reactstrap";
-  import 'react-week-scheduler/react-week-scheduler.css';
+import React, {useEffect, useState} from 'react';
+import {Button, Col, Row, Table,} from "reactstrap";
+import 'react-week-scheduler/react-week-scheduler.css';
 
 const  xdays = {
   monday:     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -37,10 +32,10 @@ const DayPartEditor = (props) => {
     return s;
   }
 
-  const [days,setDays] = useState(initSchedule(props.daypart));
-  const [mouseDown,setMouseDown] = useState(false);
-  const [eventTime, setEventTime] = useState(0);
-  const [timeTrack, setTimeTrack] = useState({});
+  const [days,setDays] =useState(initSchedule(props.daypart));
+  const [mouseDown,setMouseDown] =useState(false);
+  const [eventTime, setEventTime] =useState(0);
+  const [timeTrack, setTimeTrack] =useState({});
 
   const clear = () => {
     setDays(initSchedule(undef))

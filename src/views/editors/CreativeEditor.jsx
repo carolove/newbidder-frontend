@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useState} from "react";
 
 // reactstrap components
 import {
-  Button,
-  ButtonGroup,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Form,
-  FormGroup,
-  Input,
-  Row,
-  Col
+    Button,
+    ButtonGroup,
+    Card,
+    CardBody,
+    CardFooter,
+    CardHeader,
+    Col,
+    Form,
+    FormGroup,
+    Input,
+    Row
 } from "reactstrap";
 import BannerEditor from "./BannerEditor";
 import VideoEditor from "./VideoEditor";
@@ -21,7 +21,7 @@ import DealEditor from "./DealEditor";
 import NativeEditor from "./NativeEditor";
 import SiteOrAppEditor from "./SiteOrAppEditor";
 import CreativeSizeEditor from "./CreativeSizeEditor";
-import { useViewContext } from "../../ViewContext";
+import ViewContext from "../../ViewContext";
 import {attrOptions, blackStyle, whiteStyle} from "../../Utils"
 
 import DatePicker from "react-datepicker";
@@ -32,18 +32,18 @@ var undef;
 
 const CreativeEditor = (props) => {
 
-const [count, setCount] = useState(0);
-const [creative, setCreative] = useState(props.creative);
-const [startDate, setStartDate] = useState(new Date(props.creative.interval_start));
-const [endDate, setEndDate] = useState(new Date(props.creative.interval_end));
-const [privateDeals, setPrivateDeals] = useState(props.creative.dealType == 2);
-const [appnexusSSP, setAppnexus] = useState(false);
-const [bidswitchSSP, setBidswitch] = useState(false);
-const [googleSSP, setGoogle] = useState(false);
-const [stroerSSP, setStroer] = useState(false);
-const [siteorapp, setSiteorapp] = useState(props.creative.siteorapp);
+const [count, setCount] =useState(0);
+const [creative, setCreative] =useState(props.creative);
+const [startDate, setStartDate] =useState(new Date(props.creative.interval_start));
+const [endDate, setEndDate] =useState(new Date(props.creative.interval_end));
+const [privateDeals, setPrivateDeals] =useState(props.creative.dealType == 2);
+const [appnexusSSP, setAppnexus] =useState(false);
+const [bidswitchSSP, setBidswitch] =useState(false);
+const [googleSSP, setGoogle] =useState(false);
+const [stroerSSP, setStroer] =useState(false);
+const [siteorapp, setSiteorapp] =useState(props.creative.siteorapp);
 
-const vx = useViewContext();
+const vx = useContext(ViewContext);
 
 const getSelectedRules = () => {
     var items = []; 

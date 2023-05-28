@@ -18,15 +18,7 @@
 import React from "react";
 
 // reactstrap components
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
+import {Card, CardBody, CardHeader, CardTitle, Col, Row, Table} from "reactstrap";
 
 class Tables extends React.Component {
   render() {

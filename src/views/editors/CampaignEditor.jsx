@@ -1,25 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useState} from "react";
 
 // reactstrap components
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../../ViewContext";
+import {Button, Card, CardBody, CardFooter, CardHeader, Col, Form, FormGroup, Input, Label, Row} from "reactstrap";
+import ViewContext from "../../ViewContext";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import DayPartEditor from "./DayPartEditor";
-import {getTrueFalseOptions, ssp, blackStyle, whiteStyle, stringify} from "../../Utils.js"
+import {blackStyle, getTrueFalseOptions, ssp, whiteStyle} from "../../Utils.js"
 
 var regions = ["US","APAC","EUROPE","Russia"];
 
@@ -27,12 +15,12 @@ var undef;
 
 const CampaignEditor = (props) => {
 
-  const [count, setCount] = useState(0);
-  const [campaign, setCampaign] = useState(props.campaign);
-  const [startDate, setStartDate] = useState(new Date(props.campaign.activate_time));
-  const [endDate, setEndDate] = useState(new Date(props.campaign.expire_time));
-  const [daypartSchedule, setDaypartSchedule] = useState(props.campaign.daypartSchedule);
-  const vx = useViewContext();
+  const [count, setCount] =useState(0);
+  const [campaign, setCampaign] =useState(props.campaign);
+  const [startDate, setStartDate] =useState(new Date(props.campaign.activate_time));
+  const [endDate, setEndDate] =useState(new Date(props.campaign.expire_time));
+  const [daypartSchedule, setDaypartSchedule] =useState(props.campaign.daypartSchedule);
+  const vx = useContext(ViewContext);
 
 
 const getAttachedCreatives = () => {

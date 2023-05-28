@@ -1,16 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Button,
-  ButtonGroup,
-
-  FormGroup,
-  Input,
-
-  Row,
-  Col
-} from "reactstrap";
+import {Button, ButtonGroup, Col, Row} from "reactstrap";
 
 var undef;
 
@@ -22,7 +13,7 @@ const SiteOrAppEditor = (props) => {
       setRSelected(props.value);
   }, [props.value]);
 
-  const [rSelected, setRSelected] = useState('');
+  const [rSelected, setRSelected] =useState('');
 
   const setSelection = (r) => {
     setRSelected(r);

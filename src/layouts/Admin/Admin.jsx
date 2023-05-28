@@ -15,22 +15,20 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, {useContext, useState} from "react";
+import {Route, Routes} from "react-router-dom";
 // javascript plugin used to create scrollbars on windows
-import PerfectScrollbar from "perfect-scrollbar";
 
 import LoginModal from '../../LoginModal'
 
 // core components
 import AdminNavbar from "../../components/Navbars/AdminNavbar.jsx";
-import Footer from      "../../components/Footer/Footer.jsx";
-import Sidebar from     "../../components/Sidebar/Sidebar.jsx";
-import FixedPlugin from "../../components/FixedPlugin/FixedPlugin.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
+import Sidebar from "../../components/Sidebar/Sidebar.jsx";
 
 import routes from "../../routes.js";
 
-import { useViewContext } from "../../ViewContext";
+import ViewContext from "../../ViewContext";
 
 
 import logo from "../../assets/img/react-logo.png";
@@ -39,10 +37,10 @@ var ps;
 
 const Admin = (props) => {
 
-  const vx = useViewContext();
+  const vx = useContext(ViewContext);
 
-  const [backgroundColor, setBackgroundColor] = useState('blue');
-  const [sidebarOpened, setSidebarOpened] = useState( document.documentElement.className.indexOf("nav-open") !== -1);
+  const [backgroundColor, setBackgroundColor] =useState('blue');
+  const [sidebarOpened, setSidebarOpened] =useState( document.documentElement.className.indexOf("nav-open") !== -1);
 
   // this function opens and closes the sidebar on small devices
   const toggleSidebar = () => {
@@ -115,7 +113,7 @@ const Admin = (props) => {
               toggleSidebar={toggleSidebar}
               sidebarOpened={sidebarOpened}
             />
-            <Switch>{getRoutes(routes)}</Switch>
+            <Routes>{getRoutes(routes)}</Routes>
             {// we don't want the Footer to be rendered on map page
               props.location.pathname.indexOf("maps") !== -1 ? null : (
               <Footer fluid />

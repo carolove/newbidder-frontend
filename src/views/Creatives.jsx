@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import {Button, Card, CardBody, Col, Row, Table} from "reactstrap";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal'
 import CreativeEditor from './editors/CreativeEditor'
 import DecisionModal from '../DecisionModal';
@@ -25,9 +16,9 @@ var undef;
     await vx.listCreatives();
   }
 
-  const vx = useViewContext();
-  const [creative, setCreative] = useState(null);
-  const [count, setCount] = useState(0);
+  const vx = useContext(ViewContext);
+  const [creative, setCreative] =useState(null);
+  const [count, setCount] =useState(0);
   useEffect(() => {
     if (vx.loggedIn)
       loadDataOnce();
@@ -354,9 +345,9 @@ const getNativesView = () => {
   };
 
    ////////////////////////////// DELETE CREATIVE ///////////////////////////////////
-   const [modal, setModal] = useState(false);
-   const [id, setId] = useState(0);
-   const [type, setType] = useState('');
+   const [modal, setModal] =useState(false);
+   const [id, setId] =useState(0);
+   const [type, setType] =useState('');
 
    const modalCallback = (doit) => {
      if (doit) {

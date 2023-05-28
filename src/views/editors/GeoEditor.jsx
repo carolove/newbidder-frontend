@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Button,
-  ButtonGroup,
-
-  FormGroup,
-  Input,
-  Row,
-  Col
-} from "reactstrap";
+import {Button, ButtonGroup, Col, FormGroup, Input, Row} from "reactstrap";
 import LeafMap from "../LeafMap.jsx"
 
 
@@ -17,12 +9,12 @@ var undef;
 
 const GeoEditor = (props) => {
 
-  const [geo, setGeo] = useState([]);
-  const [showControl, setShowControl] = useState();
-  const [showMap, setShowMap] = useState(false);
-  const [count, setCount] = useState(0);
-  const [zoom, setZoom] = useState(1);
-  const [center, setCenter] = useState([44.414165,8.942184]);
+  const [geo, setGeo] =useState([]);
+  const [showControl, setShowControl] =useState();
+  const [showMap, setShowMap] =useState(false);
+  const [count, setCount] =useState(0);
+  const [zoom, setZoom] =useState(1);
+  const [center, setCenter] =useState([44.414165,8.942184]);
 
   useEffect(() => {
      setGeo(props.geo);

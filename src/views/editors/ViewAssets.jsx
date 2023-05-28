@@ -1,40 +1,17 @@
 // https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-Native-Ads-Specification-1-1_2016.pd
 
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 
 // reactstrap components
-import {
-  Alert,
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-
-  CardTitle,
-  Form,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Table,
-  Label,
-  Row,
-  Col
-} from "reactstrap";
-import {mimeTypes, protocolOptions, assetDataType} from "../../Utils";
+import {Alert, Button, Col, FormGroup, Input, Label, Row} from "reactstrap";
+import {assetDataType} from "../../Utils";
 import VideoEditor from "./VideoEditor";
 
 var undef;
 
 const ViewAssets = (props) => {
 
-const [video, setVideo] = useState({});
+const [video, setVideo] =useState({});
 
   const handler = (e, i, entity,key ) => {
     props.nativead.assets[i][entity][key] = e.target.value;

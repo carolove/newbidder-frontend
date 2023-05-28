@@ -1,30 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import MDEditor from '@uiw/react-md-editor';
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-
-  CardTitle,
-  Form,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Table,
-  Label,
-  Row,
-  Col
-} from "reactstrap";
+import {Col, FormGroup, Input, Row} from "reactstrap";
 import DemoTag from "../simulator/DemoTag.jsx"
 import {mimeTypes, protocolOptions} from "../../Utils"
 
@@ -32,7 +10,7 @@ var undef;
 
 const VideoEditor = (props) => {
 
-  const [rSelected, setRSelected] = useState(props.creative.dealType);
+  const [rSelected, setRSelected] =useState(props.creative.dealType);
 
   const setDealSelection = (r) => {
     setRSelected(r);

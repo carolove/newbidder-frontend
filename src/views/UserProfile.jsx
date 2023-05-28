@@ -15,36 +15,24 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React , { useState, useEffect } from "react";
-import {useViewContext } from "../ViewContext";
+import React, {useContext, useState} from "react";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal'
 import SuperUser from '../SuperUser';
 import SuperAffiliate from '../SuperAffiliate'
-import {whiteStyle, blackStyle, getRole} from "../Utils";
+import {blackStyle, getRole, whiteStyle} from "../Utils";
 
 
 // reactstrap components
-import {
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-  FormGroup,
-  Form,
-  Input,
-  Row,
-  Col
-} from "reactstrap";
+import {Button, Card, CardBody, CardFooter, CardHeader, CardText, Col, Form, FormGroup, Input, Row} from "reactstrap";
 
 const UserProfile = () => {
 
-  const vx = useViewContext();
-  const [count, setCount] = useState(1);
-  const [adminUser, setAdminUser] = useState(false);
-  const [adminCompany, setAdminCompany] = useState(false);
-  const [profile, setProfile] = useState(true);
+  const vx = useContext(ViewContext);
+  const [count, setCount] =useState(1);
+  const [adminUser, setAdminUser] =useState(false);
+  const [adminCompany, setAdminCompany] =useState(false);
+  const [profile, setProfile] =useState(true);
 
 
   const setInstances = async() => {

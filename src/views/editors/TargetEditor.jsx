@@ -1,46 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Alert,
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-
-  CardTitle,
-  Form,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Table,
-  Label,
-  Row,
-  Col
-} from "reactstrap";
+import {Alert, Button, Card, CardBody, CardFooter, CardHeader, Col, Form, FormGroup, Input, Row} from "reactstrap";
 
 import "react-datepicker/dist/react-datepicker.css";
 import GeoEditor from "./GeoEditor.jsx";
-import {deviceTypes, fromCommaList, blackStyle, whiteStyle} from "../../Utils.js"
+import {blackStyle, deviceTypes, fromCommaList, whiteStyle} from "../../Utils.js"
 
 
 var undef;
 
 const TargetEditor = (props) => {
 
-  const [count, setCount] = useState(0);
-  const [target, setTarget] = useState(props.target);
-  const [geo, setGeo] = useState([]);
-  const [zoom, setZoom] = useState(1);
-  const [oldValues,setOldValues] = useState(JSON.parse(JSON.stringify(props.target.geo)));
-  const [center, setCenter] = useState([44.414165,8.942184]);
+  const [count, setCount] =useState(0);
+  const [target, setTarget] =useState(props.target);
+  const [geo, setGeo] =useState([]);
+  const [zoom, setZoom] =useState(1);
+  const [oldValues,setOldValues] =useState(JSON.parse(JSON.stringify(props.target.geo)));
+  const [center, setCenter] =useState([44.414165,8.942184]);
 
   useEffect(() => {
     if (props.target.geo !== undef  && props.target.geo.length !== 0 && props.target.geo[0] !== 0) {

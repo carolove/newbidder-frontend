@@ -1,27 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext} from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import {Card, CardHeader, CardTitle, Col, Row} from "reactstrap";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal'
 
 var undef;
 
  const Audio = (props) => {
 
-  const vx = useViewContext();
+  const vx = useContext(ViewContext);
 
   const setInstances = () => {
 

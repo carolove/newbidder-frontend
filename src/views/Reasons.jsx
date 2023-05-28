@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import {Row} from "reactstrap";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal';
 
 var undef;
 
 const Reasons = (props) => {
 
-    const [count, setCount] = useState(0);
-    const [reasons, setReasons] = useState([]);
-    const vx = useViewContext();
+    const [count, setCount] =useState(0);
+    const [reasons, setReasons] =useState([]);
+    const vx = useContext(ViewContext);
 
     useEffect(() => {
         if (vx.loggedIn)

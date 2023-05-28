@@ -1,33 +1,14 @@
-import React , { useState, useEffect } from "react";
-import {useViewContext } from "./ViewContext";
-import LoginModal from './LoginModal'
+import React, {useContext} from "react";
+import ViewContext from "./ViewContext";
 
 // reactstrap components
-import {
-  Alert,
-  Button,
-  ButtonGroup,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-  FormGroup,
-  Form,
-  Input,
-  Row,
-  Table,
-  Col
-} from "reactstrap";
-import { PayPalButton } from "react-paypal-button-v2";
-import ViewAssets from "./views/editors/ViewAssets";
-import {uuidv4, customerIds, customerNames, undef, whiteStyle, blackStyle, getRole} from "./Utils"
-import DecisionModal from "./DecisionModal";
+import {Alert, Button, Col, FormGroup, Input, Row} from "reactstrap";
+import {blackStyle, customerIds, getRole, whiteStyle} from "./Utils"
 
 
 const ESUser = (props) => {
 
-    const vx = useViewContext();
+    const vx = useContext(ViewContext);
 
     const showUsers = () => {
         var items  =[];

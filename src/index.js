@@ -15,10 +15,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
-import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import ReactDOM from "react-dom/client";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 
 import AdminLayout from "./layouts/Admin/Admin.jsx";
 
@@ -27,21 +25,19 @@ import "./assets/demo/demo.css";
 import "./assets/css/nucleo-icons.css";
 
 import LoginModal from './LoginModal'
-import { useViewContext } from './ViewContext'
+import {ViewContextProvider} from './ViewContext'
 
-const hist = createBrowserHistory();
+// document.body.classList.add("white-content");
 
-document.body.classList.add("white-content");
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-
-ReactDOM.render(
-  <Router history={hist}>
-    <useViewContext.Provider>
-    <Switch>
-      <Route path="/admin" render={props => <AdminLayout {...props} />} />
-      <Redirect from="/" to="/admin/dashboard" />
-    </Switch>
-    </useViewContext.Provider>
-  </Router>,
-  document.getElementById("root")
+root.render(
+  <BrowserRouter>
+    <ViewContextProvider>
+      <Routes>
+        <Route path="/admin" render={(props) => <AdminLayout {...props} />}/>
+        <Route path="/" element={ <Navigate to="/admin/dashboard" /> } />
+      </Routes>
+    </ViewContextProvider>
+  </BrowserRouter>
 );

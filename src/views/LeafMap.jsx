@@ -15,12 +15,12 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, CircleMarker, Circle, useMapEvents, ZoomControl } from 'react-leaflet';
+import React, {useContext, useEffect, useState} from "react";
+import {Circle, MapContainer, Marker, Popup, TileLayer, useMapEvents} from 'react-leaflet';
 // reactstrap components
-import { Button, ButtonGroup, Card, CardHeader, CardBody, CardTitle, Input, Label, Row, Col } from "reactstrap";
-import { useViewContext } from "../ViewContext";
-import { stringify, undef} from "../Utils";
+import {Button, Card, CardBody, CardHeader, Col, Input, Row} from "reactstrap";
+import ViewContext from "../ViewContext";
+import {undef} from "../Utils";
 import LoginModal from '../LoginModal'
 
 
@@ -29,9 +29,9 @@ var lon = 8.942184
 
 const LeafMap = (props) => {
 
-  const vx = useViewContext();
-  const [geo, setGeo] = useState([]);
-  const [count, setCount] = useState(0);
+  const vx = useContext(ViewContext);
+  const [geo, setGeo] =useState([]);
+  const [count, setCount] =useState(0);
 
   useEffect(() => {
     //console.log("REF"+JSON.stringify(props.geo,null,2)+", zoom="+props.zoom);

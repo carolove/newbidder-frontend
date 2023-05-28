@@ -15,15 +15,14 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Dashboard from   "./views/Dashboard.jsx";
+import Dashboard from "./views/Dashboard.jsx";
 import UserProfile from "./views/UserProfile.jsx"
-import Simulator from   "./views/Simulator.jsx"
-import Campaigns from   "./views/Campaigns.jsx"
-import Targets from     "./views/Targets.jsx"
-import Creatives from   "./views/Creatives.jsx"
-import Rules from       "./views/Rules.jsx"
-import Sets from        "./views/Sets.jsx"
-import Reasons from     "./views/Reasons.jsx"
+import Simulator from "./views/Simulator.jsx"
+import Campaigns from "./views/Campaigns.jsx"
+import Targets from "./views/Targets.jsx"
+import Creatives from "./views/Creatives.jsx"
+import Rules from "./views/Rules.jsx"
+import Sets from "./views/Sets.jsx"
 
 
 var routes = [

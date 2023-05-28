@@ -1,36 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
+import {Button, Card, CardBody, CardFooter, CardHeader, Col, Form, FormGroup, Input, Row} from "reactstrap";
 
-  CardTitle,
-  Form,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Table,
-  Label,
-  Row,
-  Col
-} from "reactstrap";
-
-import LeafMap from "../LeafMap.jsx"
 import GeoEditor from "./GeoEditor";
-import { useViewContext } from "../../ViewContext";
-import { undef, blackStyle, whiteStyle, stringify} from "../../Utils";
+import ViewContext from "../../ViewContext";
+import {blackStyle, undef, whiteStyle} from "../../Utils";
 
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 var ops = [ "DOMAIN","EQUALS","EXISTS","GREATER THAN","GREATER THAN EQUALS","IDL", "INRANGE","INTERSECTS", "LESS THAN","LESS THAN EQUALS",
@@ -41,10 +17,10 @@ var ords =["scalar","list"];
 
 const RuleEditor = (props) => {
 
-  const [showMap, setShowMap] = useState(false);
-  const [geo, setGeo] = useState([]);
-  const [zoom, setZoom] = useState(1);
-  const [center, setCenter] = useState([44.414165,8.942184]);
+  const [showMap, setShowMap] =useState(false);
+  const [geo, setGeo] =useState([]);
+  const [zoom, setZoom] =useState(1);
+  const [center, setCenter] =useState([44.414165,8.942184]);
 
   useEffect(() => {
     if (props.rule.op === 'IDL' || props.rule.op === 'NOT IDL')
@@ -65,10 +41,10 @@ const RuleEditor = (props) => {
   }, []);
 
 
-  const [count, setCount] = useState(0);
-  const [visible, setVisible] = useState(props.rule.op === 'IDL' || props.rule.op === 'NOT IDL');
-  const [rule, setRule] = useState(props.rule);
-  const vx = useViewContext();
+  const [count, setCount] =useState(0);
+  const [visible, setVisible] =useState(props.rule.op === 'IDL' || props.rule.op === 'NOT IDL');
+  const [rule, setRule] =useState(props.rule);
+  const vx = useContext(ViewContext);
 
   const nameChangedHandler = (event) => {
       rule.name = event.target.value;

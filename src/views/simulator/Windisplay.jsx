@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
-import {
-    Input,
-    Card,
-    CardHeader,
-    Row,
-    Col,
-    Button
-} from "reactstrap";
+import React, {useState} from 'react';
+import {Button, Card, CardHeader, Col, Input, Row} from "reactstrap";
 
 import DemoTag from './DemoTag';
 
-var undef;
+// var undef;
 
 const Windisplay = (props) => {
 
-    const [showPixelFire, setShowPixelFire] = useState(false);
-    const [nurl, setNurl] = useState(props.vars.nurl);
+    const [showPixelFire, setShowPixelFire] =useState(false);
+    const [nurl, setNurl] =useState(props.vars.nurl);
     const textAreaStyle = {
         fontSize: 12
     };

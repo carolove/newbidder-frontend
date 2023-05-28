@@ -1,26 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext} from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import {Button, Card, CardBody, Col, Row, Table} from "reactstrap";
+import ViewContext from "../ViewContext";
 
 var undef;
 
 const RulesView = (props) => {
 
-    const vx = useViewContext();
+    const vx = useContext(ViewContext);
 
     const getRulesView = () => {
         if (vx.rules === undef)

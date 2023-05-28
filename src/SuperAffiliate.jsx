@@ -1,27 +1,9 @@
-import React , { useState, useEffect } from "react";
-import {useViewContext } from "./ViewContext";
-import LoginModal from './LoginModal'
-import ESUser from "./ESUser";
+import React, {useContext, useEffect, useState} from "react";
+import ViewContext from "./ViewContext";
 
 // reactstrap components
-import {
-  Alert,
-  Button,
-  ButtonGroup,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-  FormGroup,
-  Form,
-  Input,
-  Row,
-  Table,
-  Col
-} from "reactstrap";
-import { PayPalButton } from "react-paypal-button-v2";
-import {uuidv4, customerIds, customerNames, protocolOptions} from "./Utils"
+import {Alert, Button, ButtonGroup, Col, FormGroup, Input, Row} from "reactstrap";
+import {PayPalButton} from "react-paypal-button-v2";
 import DecisionModal from "./DecisionModal";
 import ESAffiliate from "./views/ESAffiliate"
 
@@ -29,17 +11,17 @@ var undef;
 
 const SuperAffiliate = (props) => {
 
-  const vx = useViewContext();
-  const [companyModal, setCompanyModal] = useState(false);
-  const [newCompanyModal, setNewCompanyModal] = useState(false);
-  const [record, setRecord] = useState(undef)
-  const [users, setUsers] = useState([]);
-  const [affiliates, setAffiliates] = useState([]);
-  const [count, setCount] = useState(1);
-  const [paypal, setPaypal] = useState(true);
-  const [amount, setAmount] = useState(.02);
-  const [paypalUser, setPaypallUser] = useState(-1);
-  const [showPaypalwidget, setShowPaypalwidget] = useState(false);
+  const vx = useContext(ViewContext);
+  const [companyModal, setCompanyModal] =useState(false);
+  const [newCompanyModal, setNewCompanyModal] =useState(false);
+  const [record, setRecord] =useState(undef)
+  const [users, setUsers] =useState([]);
+  const [affiliates, setAffiliates] =useState([]);
+  const [count, setCount] =useState(1);
+  const [paypal, setPaypal] =useState(true);
+  const [amount, setAmount] =useState(.02);
+  const [paypalUser, setPaypallUser] =useState(-1);
+  const [showPaypalwidget, setShowPaypalwidget] =useState(false);
 
 
   const refresh = async () => {
@@ -270,7 +252,7 @@ const SuperAffiliate = (props) => {
           affiliates={affiliates}
         />
       </Col>
-   </Row>}
+   </Row>
    }
   </>
   );

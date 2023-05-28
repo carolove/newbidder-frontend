@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // reactstrap components
-import {
-  Card,
-  CardBody,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
-import LoginModal from '../LoginModal'
+import {Card, CardBody, Table} from "reactstrap";
 
 var undef;
 

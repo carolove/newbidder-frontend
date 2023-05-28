@@ -1,27 +1,12 @@
-import React, { useState } from 'react';
-import { 
-    Input, 
-    Button, 
-    Card,
-    CardBody,
-    CardFooter,
-    CardHeader,
-    Col,
-    Form,
-    FormGroup,
-    Modal, 
-    ModalHeader, 
-    ModalBody, 
-    ModalFooter,
-    Row
- } from 'reactstrap';
+import React, {useState} from 'react';
+import {Button, Card, CardBody, CardFooter, CardHeader, Col, FormGroup, Input, Row} from 'reactstrap';
 
-import {whiteStyle, blackStyle, lookingGlassOptions} from "./Utils"
+import {blackStyle, lookingGlassOptions, whiteStyle} from "./Utils"
 
 const LoadSymbolModal = (props) => {
-  const [modal, setModal] = useState(true);
-  const [symbol, setSymbol] = useState(props.symbol);
-  const [count, setCount] = useState(0);
+  const [modal, setModal] =useState(true);
+  const [symbol, setSymbol] =useState(props.symbol);
+  const [count, setCount] =useState(0);
 
   const toggle = (t) => {
     setModal(!modal);

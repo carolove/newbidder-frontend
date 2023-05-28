@@ -1,45 +1,28 @@
-import React , { useState, useEffect } from "react";
-import {useViewContext } from "./ViewContext";
+import React, {useContext, useEffect, useState} from "react";
+import ViewContext from "./ViewContext";
 import LoginModal from './LoginModal'
 import ESUser from "./ESUser";
 
 // reactstrap components
-import {
-  Alert,
-  Button,
-  ButtonGroup,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-  FormGroup,
-  Form,
-  Input,
-  Row,
-  Table,
-  Col
-} from "reactstrap";
-import { PayPalButton } from "react-paypal-button-v2";
-import ViewAssets from "./views/editors/ViewAssets";
-import {uuidv4, customerIds, customerNames} from "./Utils"
+import {Alert, Button, ButtonGroup, Col, FormGroup, Input, Row} from "reactstrap";
+import {PayPalButton} from "react-paypal-button-v2";
 import DecisionModal from "./DecisionModal";
 
 var undef;
 
 const SuperUser = (props) => {
 
-  const vx = useViewContext();
-  const [userModal, setUserModal] = useState(false);
-  const [companyModal, setCompanyModal] = useState(false);
-  const [record, setRecord] = useState(undef)
-  const [users, setUsers] = useState([]);
-  const [affiliates, setAffiliates] = useState([]);
-  const [paypal, setPaypal] = useState(false);
-  const [amount, setAmount] = useState(.02);
-  const [paypalUser, setPaypallUser] = useState(-1);
-  const [showPaypalwidget, setShowPaypalwidget] = useState(false);
-  const [count, setCount] = useState(1);
+  const [companyModal, setCompanyModal] =useState(false);
+  const vx = useContext(ViewContext);
+  const [userModal, setUserModal] =useState(false);
+  const [record, setRecord] =useState(undef)
+  const [users, setUsers] =useState([]);
+  const [affiliates, setAffiliates] =useState([]);
+  const [paypal, setPaypal] =useState(false);
+  const [amount, setAmount] =useState(.02);
+  const [paypalUser, setPaypallUser] =useState(-1);
+  const [showPaypalwidget, setShowPaypalwidget] =useState(false);
+  const [count, setCount] =useState(1);
 
 
   const refresh = async () => {

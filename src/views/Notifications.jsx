@@ -20,17 +20,7 @@ import React from "react";
 import NotificationAlert from "react-notification-alert";
 
 // reactstrap components
-import {
-  Alert,
-  UncontrolledAlert,
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Row,
-  Col
-} from "reactstrap";
+import {Alert, Button, Card, CardBody, CardHeader, CardTitle, Col, Row, UncontrolledAlert} from "reactstrap";
 
 const Notifications = () => {
   const notify = place => {

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { Input, TextArea, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import {uuidv4} from "./Utils"
+import React, {useState} from 'react';
+import {Button, Input, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 
 const DecisionModal = (props) => {
-  const [modal, setModal] = useState(true);
-  const [inputValue, setInputValue] = useState();
+  const [modal, setModal] =useState(true);
+  const [inputValue, setInputValue] =useState();
 
   const toggle = (t) => {
     setModal(!modal);
@@ -43,6 +42,6 @@ const DecisionModal = (props) => {
       </Modal>
     </div>
   );
-}
+};
 
 export default DecisionModal;

@@ -1,35 +1,27 @@
-import React , { useState, useEffect } from "react";
-import {useViewContext } from "../ViewContext";
+import React, {useContext} from "react";
+import ViewContext from "../ViewContext";
 
 // reactstrap components
 import {
-  Alert,
-  Button,
-  ButtonGroup,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-  FormGroup,
-  Form,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  Row,
-  Table,
-  Col
+    Alert,
+    Button,
+    Card,
+    CardBody,
+    CardHeader,
+    Col,
+    Form,
+    FormGroup,
+    Input,
+    InputGroup,
+    Row
 } from "reactstrap";
-import { PayPalButton } from "react-paypal-button-v2";
-import {uuidv4, customerIds, customerNames, whiteStyle, blackStyle} from "../Utils"
-import DecisionModal from "../DecisionModal";
+import {blackStyle, whiteStyle} from "../Utils"
 
 var undef;
 
-
 const ESAffilates = (props) => {
 
-    const vx = useViewContext();
+    const vx = useContext(ViewContext);
 
     const doBudget = (index) => {
         if (vx.user.customer_id === 'rtb4free') {
@@ -70,15 +62,15 @@ const ESAffilates = (props) => {
                   </Col>
                   <Col className="pr-md-1" md="3">
                     <FormGroup>
-                    <label>Budget</label>
-                    <InputGroup>
-                        <InputGroupAddon addonType="prepend"><Button size="sm" onClick={()=>doBudget(index)}>Update</Button></InputGroupAddon>
+                      <label>Budget</label>
+                      <InputGroup>
+                        <Button size="sm" onClick={()=>doBudget(index)}>Update</Button>
                         &nbsp;
                         <Input 
                             id={"index-"+index}
                             disabled={!(vx.user.customer_id === 'rtb4free')}
                             defaultValue={row.budget}/>
-                        </InputGroup>
+                      </InputGroup>
                     </FormGroup>
                   </Col>
                 </Row>

@@ -1,11 +1,10 @@
 // React video.js, see here: https://docs.videojs.com/tutorial-react.html
 
-import React, { useState} from 'react';
+import React from 'react';
 import ReactPlayer from 'react-player'
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'html-react-parser';
 import VideoPlayer from './VideoPlayer';
 import "video.js/dist/video-js.css";
-import useScript from '../../useScript';
 
 var undef;
 

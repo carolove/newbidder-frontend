@@ -14,32 +14,32 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import React, { useState, useEffect } from "react";
+import React, {useContext, useState} from "react";
 
 // reactstrap components
 import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col
+    Badge,
+    Button,
+    ButtonGroup,
+    ButtonToolbar,
+    Card,
+    CardBody,
+    CardHeader,
+    CardTitle,
+    Col,
+    Row,
+    Table
 } from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal'
 
 var undef;
 
  const ConsoleLog = (props) => {
 
-  const vx = useViewContext();
-  const [rSelected, setRSelected] = useState(3);     // buttons
-  const [count, setCount] = useState(1);
+  const vx = useContext(ViewContext);
+  const [rSelected, setRSelected] =useState(3);     // buttons
+  const [count, setCount] =useState(1);
   
   /*useEffect(() => {
     return () => {console.log("Logger UNMOUNTED"); vx.setLogsuspended(true); }

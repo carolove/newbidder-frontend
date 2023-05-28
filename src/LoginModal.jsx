@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Button, Col, Input, FormGroup, Label, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import {useViewContext } from "./ViewContext";
+import React, {useContext, useEffect, useState} from 'react';
+import {Button, Col, FormGroup, Input, Label, Modal, ModalBody, ModalFooter} from 'reactstrap';
+import ViewContext from "./ViewContext";
 
 var undef;
 
@@ -22,13 +22,13 @@ const LoginModal = (props) => {
     }
   }, []);
 
-  const vx = useViewContext();
+  const vx = useContext(ViewContext);
 
-  const [customer, setCustomer] = useState('');
-  const [name, setName] = useState('rtb4free');
-  const [password, setPassword] = useState('');
-  const [server, setServer] = useState(window.location.hostname+':7379');
-  const [remembered, setRemembered] = useState(false);
+  const [customer, setCustomer] =useState('');
+  const [name, setName] =useState('rtb4free');
+  const [password, setPassword] =useState('');
+  const [server, setServer] =useState(window.location.hostname+':7379');
+  const [remembered, setRemembered] =useState(false);
 
   const changeCustomer = (event) => {
     setCustomer(event.target.value);

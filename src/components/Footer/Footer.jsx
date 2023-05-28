@@ -18,16 +18,15 @@
 /*eslint-disable*/
 import React from "react";
 // used for making the prop types of this component
-import PropTypes from "prop-types";
 
 // reactstrap components
-import { Container, Row, Nav, NavItem, NavLink } from "reactstrap";
-import { useViewContext } from "../../ViewContext";
+import {Container, Nav, NavItem, NavLink} from "reactstrap";
+import ViewContext from "../../ViewContext";
 
 var undef;
 
 const Footer = () =>  {
-  const vx = useViewContext();
+  const vx = useContext(ViewContext);
   const getName = () => {
     if (vx.user.username === undef) {
       return '[]';

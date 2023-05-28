@@ -1,40 +1,18 @@
 // https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-Native-Ads-Specification-1-1_2016.pd
 
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardText,
-
-  CardTitle,
-  Form,
-  FormGroup,
-  Input,
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Table,
-  Label,
-  Row,
-  Col
-} from "reactstrap";
-import {mimeTypes, protocolOptions, contextType, contextSubType, placementType} from "../../Utils";
+import {Button, ButtonGroup, Col, FormGroup, Input, Label, Row} from "reactstrap";
+import {contextSubType, contextType, placementType} from "../../Utils";
 import ViewAssets from "./ViewAssets";
 
 var undef;
 
 const NativeEditor = (props) => {
 
-  const [count, setCount] = useState(0);
-  const [assets, setAssets] = useState( props.creative.nativead.assets ); 
+  const [count, setCount] =useState(0);
+  const [assets, setAssets] =useState( props.creative.nativead.assets ); 
 
 
   const newAsset = () => {

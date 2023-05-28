@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 
 // reactstrap components
-import {
-  Button,
-  ButtonGroup,
-
-  FormGroup,
-  Input,
-  Row,
-  Col
-} from "reactstrap";
+import {Button, ButtonGroup, Col, FormGroup, Input, Row} from "reactstrap";
 
 
 var undef;
 
 const DealEditor = (props) => {
 
-  const [rSelected, setRSelected] = useState(props.creative.dealType);
+  const [rSelected, setRSelected] =useState(props.creative.dealType);
 
   const setDealSelection = (r) => {
     setRSelected(r);

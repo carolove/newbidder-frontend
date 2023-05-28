@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import {Col, Row} from "reactstrap";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal';
 import RuleEditor from './editors/RuleEditor.jsx';
 import RulesView from './RulesView.jsx';
@@ -18,9 +15,9 @@ const Rules = (props) => {
   }, []);
 
 
-    const [count, setCount] = useState(0);
-    const [rule, setRule] = useState(null);
-    const vx = useViewContext();
+    const [count, setCount] =useState(0);
+    const [rule, setRule] =useState(null);
+    const vx = useContext(ViewContext);
   
     const redraw = () => {
         setCount(count+1);

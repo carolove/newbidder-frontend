@@ -1,24 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import {Button, Card, CardBody, Col, Row, Table} from "reactstrap";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal'
 import DecisionModal from "../DecisionModal";
 import LoadSymbol from "../LoadSymbol";
-import {undef, lookingGlassOptions } from "../Utils";
+import {undef} from "../Utils";
 
 var symbol = { s3: "", filename:"", name: "", type: "", size:""};
 
@@ -28,17 +16,17 @@ const Sets = (props) => {
       refresh();
     }, []);
 
-    const [bigdata, setBigdata] = useState([]);
-    const [hazel, setHazel] = useState({});
-    const [macros, setMacros] = useState({});
-    const [count, setCount] = useState(0);
-    const [modal, setModal] = useState(false);
+    const [bigdata, setBigdata] =useState([]);
+    const [hazel, setHazel] =useState({});
+    const [macros, setMacros] =useState({});
+    const [count, setCount] =useState(0);
+    const [modal, setModal] =useState(false);
   
-    const [name, setName] = useState('');
-    const [querySymbol, setQuerySymbol] = useState(false);
-    const [queryHazelcast, setQueryHazelcast] = useState(false);
-    const [object, setObject] = useState(undef);
-    const vx = useViewContext();
+    const [name, setName] =useState('');
+    const [querySymbol, setQuerySymbol] =useState(false);
+    const [queryHazelcast, setQueryHazelcast] =useState(false);
+    const [object, setObject] =useState(undef);
+    const vx = useContext(ViewContext);
   
     const redraw = () => {
         setCount(count+1);

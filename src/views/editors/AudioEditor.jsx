@@ -1,70 +1,56 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import MDEditor from '@uiw/react-md-editor';
 
 // reactstrap components
-import {
-  Alert,
-  Button,
-  ButtonGroup,
-  FormGroup,
-  Input,
-  Label,
-  Row,
-  Col
-} from "reactstrap";
+import {Alert, Button, ButtonGroup, Col, FormGroup, Input, Label, Row} from "reactstrap";
 import DemoTag from "../simulator/DemoTag"
 import BannerEditor from "./BannerEditor";
 import CreativeSizeEditor from "./CreativeSizeEditor"
-import {mimeTypes, protocolOptions, apiOptions} from "../../Utils"
+import {apiOptions, mimeTypes, protocolOptions} from "../../Utils"
 
 var undef;
 
 const AudioEditor = (props) => {
 
-  const [rSelected, setRSelected] = useState(props.creative.dealType);
-  const [showCompanion, setShowCompanion] = useState(false);
-  const [companion, setCompanion] = useState({
+  const [showCompanion, setShowCompanion] =useState(false);
+  const [companion, setCompanion] =useState({
     htmltemplate: '',
     sizeType: '0'
   });
-  const [count, setCount] = useState(1);
+  const [count, setCount] =useState(1);
 
-  const setDealSelection = (r) => {
-    setRSelected(r);
-    props.selector(r);
+
+  const newCompanion = () => {
+    setShowCompanion(true);
   }
 
-const newCompanion = () => {
-  setShowCompanion(true);
-}
-
-const deleteCompanion = () => {
-  setShowCompanion(false);
-}
-
-const setHtml = (e,type) => {
-  companion[type]=e.target.value;
-  setCompanion(companion);
-  setCount(count+1);
-}
-
-// Callback for w/h in CreativeSizeEditor
-const setSize = (e, key) => {
-  if (e == null) {
-    companion[key] = "0";
-    setCompanion(companion)
-    return;
+  const deleteCompanion = () => {
+    setShowCompanion(false);
   }
 
-  companion[key] = e.target.value;
-  setCompanion(companion);
-}
+  const setHtml = (e,type) => {
+    companion[type]=e.target.value;
+    setCompanion(companion);
+    setCount(count+1);
+  }
 
-// Set the dimension type
-const setSizeType = (t) => {
-  companion.sizeType = t;
-  setCompanion(companion);
-}
+  // Callback for w/h in CreativeSizeEditor
+  const setSize = (e, key) => {
+    if (e == null) {
+      companion[key] = "0";
+      setCompanion(companion)
+      return;
+    }
+
+    companion[key] = e.target.value;
+    setCompanion(companion);
+  }
+
+  // Set the dimension type
+  const setSizeType = (t) => {
+    companion.sizeType = t;
+    setCompanion(companion);
+  }
 
 
   return(

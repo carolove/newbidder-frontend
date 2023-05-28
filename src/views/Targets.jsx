@@ -1,36 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import {Button, Card, CardBody, Col, Row, Table} from "reactstrap";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal'
 import TargetEditor from './editors/TargetEditor.jsx'
 import DecisionModal from "../DecisionModal";
 
 var undef;
 
- const Targets = (props) => {
+const Targets = (props) => {
 
+  const vx = useContext(ViewContext);
   // This should be called when the page first loads
   const loadDataOnce = async() => {
     await vx.listTargets();
   }
 
-  const vx = useViewContext();
-  const [target, setTarget] = useState(null);
-  const [count, setCount] = useState(0);
+  const [target, setTarget] =useState(null);
+  const [count, setCount] =useState(0);
   useEffect(() => {
     if (vx.loggedIn)
       loadDataOnce();
@@ -102,8 +90,8 @@ var undef;
   }
 
     ////////////////////////////// DELETE CAMPAIGN ///////////////////////////////////
-    const [modal, setModal] = useState(false);
-    const [id, setId] = useState(0);
+    const [modal, setModal] =useState(false);
+    const [id, setId] =useState(0);
     const modalCallback = (doit) => {
       if (doit) {
         deleteTarget(id)

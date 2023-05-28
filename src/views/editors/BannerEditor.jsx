@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, {useContext, useState} from "react";
 import MDEditor from '@uiw/react-md-editor';
 
 // reactstrap components
-import {
-  FormGroup,
-  InputGroup,
-  Input,
-  Row,
-  Col
-} from "reactstrap";
+import {Col, FormGroup, Input, Row} from "reactstrap";
 import DemoTag from "../simulator/DemoTag.jsx";
 import {mimeTypes} from "../../Utils";
-import { useViewContext } from "../../ViewContext";
+import ViewContext from "../../ViewContext";
 
 var undef;
 
 const BannerEditor = (props) => {
 
-  const vx = useViewContext();
-  const [rSelected, setRSelected] = useState(props.creative.dealType);
+  const vx = useContext(ViewContext);
+  const [rSelected, setRSelected] =useState(props.creative.dealType);
 
   const setDealSelection = (r) => {
     setRSelected(r);

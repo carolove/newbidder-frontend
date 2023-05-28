@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 // reactstrap components
-import {
-  Badge,
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Table,
-  Row,
-  Col
-} from "reactstrap";
-import { useViewContext } from "../ViewContext";
+import {Button, Card, CardBody, Col, Row, Table} from "reactstrap";
+import ViewContext from "../ViewContext";
 import LoginModal from '../LoginModal'
 import Accounting from './Accounting';
 
@@ -22,10 +10,10 @@ var undef;
 
  const Dashboard = (props) => {
 
-  const vx = useViewContext();
-  const [count, setCount] = useState(0);
-  const [values, setValues] = useState([]);
-  const [budget, setBudget] = useState([]);
+  const vx = useContext(ViewContext);
+  const [count, setCount] =useState(0);
+  const [values, setValues] =useState([]);
+  const [budget, setBudget] =useState([]);
   useEffect(() => {
     if (vx.loggedIn)
       refresh();
